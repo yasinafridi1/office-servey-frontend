@@ -19,4 +19,8 @@ export const formSchema = Yup.object({
   fullName: stringValidation("Enter your full name")
     .max(120, maxLengthError("Full name", 60))
     .min(6, minLengthError("Full name", 3)),
+  university: stringValidation("Please select your institute/university name"),
+  department: stringValidation("Department is required"),
+  gender: stringValidation("Gender is required"),
+  officeUsed: stringValidation("Field is required"),
 });

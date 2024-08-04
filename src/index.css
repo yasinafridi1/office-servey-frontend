@@ -10,10 +10,7 @@
 }
 
 body{
-  font-weight: 400;
-}
-.poppin-900 {
-  font-weight: 900;
+  font-weight: 300;
 }
 .poppin-700 {
   font-weight: 700;
@@ -25,7 +22,9 @@ body{
 .poppin-500{
   font-weight: 500;
 }
-
+.poppin-400 {
+  font-weight: 400;
+}
 .inputShadow{
   box-shadow: 0 0 15px 0.5px #00000016;;
 }
