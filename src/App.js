@@ -14,14 +14,21 @@ function App() {
     officeUsed: "",
   };
 
-  const { errors, values, handleBlur, touched, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialState,
-      validationSchema: formSchema,
-      onSubmit: (values) => {
-        console.log("Form submitted:", values);
-      },
-    });
+  const {
+    errors,
+    values,
+    handleBlur,
+    touched,
+    handleChange,
+    handleSubmit,
+    handleReset,
+  } = useFormik({
+    initialValues: initialState,
+    validationSchema: formSchema,
+    onSubmit: (values) => {
+      console.log("Form submitted:", values);
+    },
+  });
 
   return (
     <div className="w-full p-5 flex justify-start items-center flex-col ">
@@ -89,6 +96,7 @@ function App() {
       <div className="w-[92%] sm:w-[80%] md:w-[70%] flex justify-end items-center mt-4 gap-4">
         <button
           type="button"
+          onClick={handleReset}
           className="px-6 py-[5px] text-[16px] rounded-md poppin-600 border border-red-800 bg-red-800 text-white transition-all ease-in-out duration-500 hover:text-red-800 hover:bg-white"
         >
           Clear Form
