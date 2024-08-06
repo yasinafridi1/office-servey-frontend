@@ -14,9 +14,49 @@ export const universities = {
       id: "cecos",
     },
     {
-      value: "University of peshawar",
-      label: "University of peshawar ",
+      value: "Frontier Institute of Medical Sciences, Abbottabad",
+      label: "Frontier Institute of Medical Sciences, Abbottabad",
+      id: "fiomsa",
+    },
+    {
+      value: "Gandhara University, KPK",
+      label: "Gandhara University, KPK",
+      id: "gukpk",
+    },
+    {
+      value: "Iqra National University, Swat",
+      label: "Iqra National University, Swat",
+      id: "inus",
+    },
+    {
+      value: "Northern University, Nowshera",
+      label: "Northern University, Nowshera",
+      id: "nun",
+    },
+    {
+      value: "Preston University, Kohat",
+      label: "Preston University, Kohat",
+      id: "pres",
+    },
+    {
+      value: "Qurtuba University Peshawar",
+      label: "Qurtuba University Peshawar",
+      id: "qup",
+    },
+    {
+      value: "University of Peshawar",
+      label: "University of Peshawar ",
       id: "up",
+    },
+    {
+      value: "University of Haripur",
+      label: "University of Haripur ",
+      id: "uh",
+    },
+    {
+      value: "Women University, Swab",
+      label: "Women University, Swab",
+      id: "wus",
     },
     {
       value: "Shaheed Benazir Bhutto University",
@@ -27,6 +67,11 @@ export const universities = {
       value: "City University Peshawar",
       label: "City University Peshawar ",
       id: "cusit",
+    },
+    {
+      value: "Karakoram International University, Gilgit-Baltistan",
+      label: "Karakoram International University, Gilgit-Baltistan",
+      id: "kiugb",
     },
     {
       value: "Government City College Gulbahar Peshawar",
@@ -64,8 +109,8 @@ export const universities = {
       id: "iup",
     },
     {
-      value: "Govt Frontier College / University For Women Peshawar",
-      label: "Govt Frontier College / University For Women Peshawar",
+      value: "Government Frontier College / University For Women Peshawar",
+      label: "Government Frontier College / University For Women Peshawar",
       id: "gfc",
     },
     {
@@ -103,11 +148,6 @@ export const universities = {
       label: "Peshawar Medical College",
       id: "pmc",
     },
-    //   {
-    //     value: "CECOS",
-    //     label: "CECOS",
-    //     id: "cecos",
-    //   },
   ],
 };
 
