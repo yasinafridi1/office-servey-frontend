@@ -1,7 +1,7 @@
 import React from "react";
 import ErrorText from "./ErrorText";
 
-const RadioInput = ({ item, onChange, error, touch }) => {
+const RadioInput = ({ item, onChange, error, touch, value }) => {
   return (
     <div className="w-full mt-5">
       <label
@@ -18,6 +18,7 @@ const RadioInput = ({ item, onChange, error, touch }) => {
               type="radio"
               name={item?.name}
               value={opt.value}
+              checked={value === opt.value}
               className="cursor-pointer"
               onChange={onChange}
             />

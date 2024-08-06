@@ -28,3 +28,48 @@ body{
 .inputShadow{
   box-shadow: 0 0 15px 0.5px #00000016;;
 }
+
+.loaderBg{
+  background-color: rgba(0, 0, 0, 0.33);
+}
+
+.box{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  animation: loader 1s linear infinite;
+}
+
+.box1{
+  background-color: greenyellow;
+}
+
+.box2{
+  animation-delay: 200ms;
+  background-color: rgb(40, 243, 131);
+}
+
+.box3{
+  animation-delay: 400ms;
+  background-color: rgb(40, 235, 238);
+}
+
+.box4{
+  animation-delay: 600ms;
+  background-color: rgb(47, 172, 255);
+}
+
+.box5{
+  animation-delay: 800ms;
+  background-color: rgb(29, 59, 255);
+}
+
+@keyframes loader{
+  0%,100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateY(200%);
+  }
+}
