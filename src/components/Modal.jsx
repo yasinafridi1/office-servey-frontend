@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
-const Modal = ({ open, onClose }) => {
+const Modal = ({ open, onClose, data }) => {
+  const [copied, setIsCopied] = useState(false);
+  const inputRef = useRef(null);
+
+  const handleCopyClick = async () => {
+    try {
+      if (inputRef.current) {
+        await navigator.clipboard.writeText(data?.url);
+        setIsCopied(true);
+        // Reset the "Copied" state after a short delay
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error("Failed to copy text: ", error);
+    }
+  };
+
   return (
     <div
       className={`${
@@ -32,6 +50,46 @@ const Modal = ({ open, onClose }) => {
         </div>
         <div className="w-full pr-2 py-5 max-h-[80vh] overflow-y-auto">
           <h1 className="poppin-500">Thank you for submitting servey</h1>
+          <p className="mt-2">
+            Your proficiency Level is{" "}
+            <span className="poppin-500">{data?.level}</span>
+          </p>
+          <p className="mt-2">
+            We are here to help you improve your skills. For this purpose, we
+            have already checked different tutorials on YouTube to find the best
+            resources. Below is the URL of the tutorial where you can learn and
+            improve your skills.
+          </p>
+
+          <div className="flex-grow basis-48 mt-3">
+            <label
+              htmlFor="url"
+              className="block mb-1 pl-[2px] font-medium text-[14px] capitalize"
+            >
+              URL
+            </label>
+            <div className="flex">
+              <input
+                type="text"
+                name="url"
+                id="url"
+                value={data?.url}
+                ref={inputRef}
+                className="border border-gray-300 outline-none text-gray-900 sm:text-sm rounded-tl-md rounded-bl-md focus:border-gray-800 block w-full px-2.5 py-2 "
+                disabled={true}
+              />
+              <button
+                className={`px-3 py-1  cursor-pointer ${
+                  copied ? "bg-green-700 text-white" : "bg-black text-white"
+                } poppin-500`}
+                onClick={handleCopyClick}
+                disabled={copied}
+              >
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </div>
+
           <div className="w-[92%] sm:w-[80%] md:w-[70%] flex justify-center items-center mt-4 gap-4 mx-auto">
             <button
               onClick={onClose}
