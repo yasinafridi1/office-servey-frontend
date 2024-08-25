@@ -1,17 +1,19 @@
 export const universities = {
+  // leave only universities listed in excel file
+  // decide level base on proficiency
   name: "university",
   id: "uni",
   label: "University/College",
   options: [
     {
-      value: "Government Degree College for boys,Hayatabad",
-      label: "Government Degree College for boys,Hayatabad",
-      id: "gdcbh",
-    },
-    {
       value: "CECOS",
       label: "CECOS University",
       id: "cecos",
+    },
+    {
+      value: "City University Peshawar",
+      label: "City University Peshawar ",
+      id: "cusit",
     },
     {
       value: "Frontier Institute of Medical Sciences, Abbottabad",
@@ -19,9 +21,9 @@ export const universities = {
       id: "fiomsa",
     },
     {
-      value: "Gandhara University, KPK",
-      label: "Gandhara University, KPK",
-      id: "gukpk",
+      value: "Frontier Institute of Medical Sciences, Abbottabad",
+      label: "Frontier Institute of Medical Sciences, Abbottabad",
+      id: "fiomsa",
     },
     {
       value: "Iqra National University, Swat",
@@ -44,6 +46,26 @@ export const universities = {
       id: "qup",
     },
     {
+      value: "Hazara University Mansehra",
+      label: "Hazara University Mansehra",
+      id: "hum",
+    },
+    {
+      value: "GDC Lower Chitral",
+      label: "GDC Lower Chitral",
+      id: "gdclc",
+    },
+    {
+      value: "Government Frontier College / University For Women Peshawar",
+      label: "Government Frontier College / University For Women Peshawar",
+      id: "gfc",
+    },
+    {
+      value: "Karakoram International University, Gilgit-Baltistan",
+      label: "Karakoram International University, Gilgit-Baltistan",
+      id: "kiugb",
+    },
+    {
       value: "University of Peshawar",
       label: "University of Peshawar ",
       id: "up",
@@ -54,99 +76,9 @@ export const universities = {
       id: "uh",
     },
     {
-      value: "Women University, Swab",
-      label: "Women University, Swab",
+      value: "Women University, Swabi",
+      label: "Women University, Swabi",
       id: "wus",
-    },
-    {
-      value: "Shaheed Benazir Bhutto University",
-      label: "Shaheed Benazir Bhutto University ",
-      id: "sbbu",
-    },
-    {
-      value: "City University Peshawar",
-      label: "City University Peshawar ",
-      id: "cusit",
-    },
-    {
-      value: "Karakoram International University, Gilgit-Baltistan",
-      label: "Karakoram International University, Gilgit-Baltistan",
-      id: "kiugb",
-    },
-    {
-      value: "Government City College Gulbahar Peshawar",
-      label: "Government City College Gulbahar Peshawar ",
-      id: "gcgp",
-    },
-    {
-      value: "City District Women's Degree College",
-      label: "City District Women's Degree College",
-      id: "cdwdc",
-    },
-    {
-      value: "Abasyn University Peshawar",
-      label: "Abasyn University Peshawar ",
-      id: "aup",
-    },
-    {
-      value: "Sarhad University Peshawar",
-      label: "Sarhad University Peshawar",
-      id: "sup",
-    },
-    {
-      value: "Institude of Management Sciences",
-      label: "Institude of Management Sciences 'IMSciences'",
-      id: "imsc",
-    },
-    {
-      value: "National University of Modern Languages  Peshawar",
-      label: "National University of Modern Languages 'NUML' Peshawar ",
-      id: "numl",
-    },
-    {
-      value: "Iqra University Peshawar",
-      label: "Iqra University Peshawar ",
-      id: "iup",
-    },
-    {
-      value: "Government Frontier College / University For Women Peshawar",
-      label: "Government Frontier College / University For Women Peshawar",
-      id: "gfc",
-    },
-    {
-      value: "Islamia College University Peshawar",
-      label: "Islamia College University Peshawar",
-      id: "icup",
-    },
-    {
-      value: "GDC Lower Chitral",
-      label: "GDC Lower Chitral",
-      id: "gdclc",
-    },
-    {
-      value: "University Of Malakand",
-      label: "University Of Malakand",
-      id: "uom",
-    },
-    {
-      value: "KMU Mardan",
-      label: "KMU Mardan",
-      id: "kmum",
-    },
-    {
-      value: "Hazara University Mansehra",
-      label: "Hazara University Mansehra",
-      id: "hum",
-    },
-    {
-      value: "KMU Peshawar",
-      label: "KMU Peshawar",
-      id: "kmup",
-    },
-    {
-      value: "Peshawar Medical College",
-      label: "Peshawar Medical College",
-      id: "pmc",
     },
   ],
 };
@@ -247,8 +179,13 @@ export const depenedentInputs = [
       },
       {
         value: "4",
-        label: "4 ( Expert )",
-        id: "e",
+        label: "4 ( Advance )",
+        id: "ehas7",
+      },
+      {
+        value: "5",
+        label: "5 ( Expert )",
+        id: "e8jd",
       },
     ],
   },
@@ -303,7 +240,7 @@ export const depenedentInputs = [
     name: "macros_pivot_mail_merge",
     id: "ha78",
     label:
-      "Do you know how to use the advanced features of Microsoft Office applications such as macros, pivot tables, or mail merge? ",
+      "Do you know how to use the advanced features of Microsoft Office applications ? ",
     options: [
       {
         value: "yes",
@@ -442,7 +379,7 @@ export const depenedentInputs = [
       },
       {
         label: "Not important",
-        label: "Not important",
+        value: "Not important",
         id: "e067a",
       },
     ],

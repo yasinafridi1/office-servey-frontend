@@ -10,10 +10,19 @@ import RadioInput from "./components/RadioInput";
 import Loader from "./components/Loader";
 import { useState } from "react";
 import Modal from "./components/Modal";
+import { db } from "./firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { getLevelURL } from "./utils/getURL";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState({
+    status: false,
+    data: {
+      level: 1,
+      url: null,
+    },
+  });
   const initialState = {
     email: "",
     fullName: "",
@@ -51,14 +60,28 @@ function App() {
   } = useFormik({
     initialValues: initialState,
     validationSchema: formSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       setLoading(true);
-      console.log("Form submitted:", values);
-      setTimeout(() => {
-        handleReset();
-        setLoading(false);
-        setModal(true);
-      }, 4000);
+      addDoc(collection(db, "office-servey"), {
+        ...values,
+        created: Timestamp.now(),
+      })
+        .then(() => {
+          handleReset();
+          setModal({
+            status: true,
+            data: {
+              level: values?.powerpoint_proficiency || 1,
+              url: getLevelURL(values?.powerpoint_proficiency || "1"),
+            },
+          });
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error adding document: ", err);
+          alert("Something went wrong");
+          setLoading(false);
+        });
     },
   });
 
@@ -66,11 +89,18 @@ function App() {
     <Loader />
   ) : (
     <>
-      {modal && (
+      {modal.status && (
         <Modal
-          open={modal}
+          open={modal.status}
+          data={modal.data}
           onClose={() => {
-            setModal(false);
+            setModal({
+              status: false,
+              data: {
+                level: 1,
+                url: null,
+              },
+            });
           }}
         />
       )}
