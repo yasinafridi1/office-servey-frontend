@@ -1,17 +1,23 @@
 import React, { useRef, useState } from "react";
 
 const Modal = ({ open, onClose, data }) => {
-  const [copied, setIsCopied] = useState(false);
+  const [copiedYoutubeURL, setIsCopiedYoutubeURL] = useState(false);
+  const [copiedWebsiteURL, setIsCopiedWebsiteURL] = useState(false);
   const inputRef = useRef(null);
 
-  const handleCopyClick = async () => {
+  const handleCopyClick = async (url, type = "youtube") => {
     try {
       if (inputRef.current) {
-        await navigator.clipboard.writeText(data?.url);
-        setIsCopied(true);
+        await navigator.clipboard.writeText(url);
+        if (type === "youtube") {
+          setIsCopiedYoutubeURL(true);
+        } else {
+          setIsCopiedWebsiteURL(true);
+        }
         // Reset the "Copied" state after a short delay
         setTimeout(() => {
-          setIsCopied(false);
+          setIsCopiedYoutubeURL(false);
+          setIsCopiedWebsiteURL(false);
         }, 2000);
       }
     } catch (error) {
@@ -52,7 +58,7 @@ const Modal = ({ open, onClose, data }) => {
           <h1 className="poppin-500">Thank you for submitting servey</h1>
           <p className="mt-2">
             Your proficiency Level is{" "}
-            <span className="poppin-500">{data?.level}</span>
+            <span className="poppin-500">{data?.level || 2}</span>
           </p>
           <p className="mt-2">
             We are here to help you improve your skills. For this purpose, we
@@ -66,26 +72,63 @@ const Modal = ({ open, onClose, data }) => {
               htmlFor="url"
               className="block mb-1 pl-[2px] font-medium text-[14px] capitalize"
             >
-              URL
+              Youtube URL
             </label>
             <div className="flex">
               <input
                 type="text"
                 name="url"
                 id="url"
-                value={data?.url}
+                value={data?.youtubeURL}
                 ref={inputRef}
                 className="border border-gray-300 outline-none text-gray-900 sm:text-sm rounded-tl-md rounded-bl-md focus:border-gray-800 block w-full px-2.5 py-2 "
                 disabled={true}
               />
               <button
                 className={`px-3 py-1  cursor-pointer ${
-                  copied ? "bg-green-700 text-white" : "bg-black text-white"
+                  copiedYoutubeURL
+                    ? "bg-green-700 text-white"
+                    : "bg-black text-white"
                 } poppin-500`}
-                onClick={handleCopyClick}
-                disabled={copied}
+                onClick={() => {
+                  handleCopyClick(data?.youtubeURL, "youtube");
+                }}
+                disabled={copiedYoutubeURL}
               >
-                {copied ? "Copied" : "Copy"}
+                {copiedYoutubeURL ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex-grow basis-48 mt-3">
+            <label
+              htmlFor="url"
+              className="block mb-1 pl-[2px] font-medium text-[14px] capitalize"
+            >
+              Website URL
+            </label>
+            <div className="flex">
+              <input
+                type="text"
+                name="url"
+                id="url"
+                value={data?.websiteURL}
+                ref={inputRef}
+                className="border border-gray-300 outline-none text-gray-900 sm:text-sm rounded-tl-md rounded-bl-md focus:border-gray-800 block w-full px-2.5 py-2 "
+                disabled={true}
+              />
+              <button
+                className={`px-3 py-1  cursor-pointer ${
+                  copiedWebsiteURL
+                    ? "bg-green-700 text-white"
+                    : "bg-black text-white"
+                } poppin-500`}
+                onClick={() => {
+                  handleCopyClick(data?.websiteURL, "website");
+                }}
+                disabled={copiedWebsiteURL}
+              >
+                {copiedWebsiteURL ? "Copied" : "Copy"}
               </button>
             </div>
           </div>

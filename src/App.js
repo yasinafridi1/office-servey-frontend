@@ -12,7 +12,6 @@ import { useState } from "react";
 import Modal from "./components/Modal";
 import { db } from "./firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { getLevelURL } from "./utils/getURL";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -20,7 +19,8 @@ function App() {
     status: false,
     data: {
       level: 1,
-      url: null,
+      youtubeURL: null,
+      websiteURL: null,
     },
   });
   const initialState = {
@@ -72,7 +72,8 @@ function App() {
             status: true,
             data: {
               level: values?.powerpoint_proficiency || 1,
-              url: getLevelURL(values?.powerpoint_proficiency || "1"),
+              youtubeURL: process.env.REACT_APP_YOUTUBE_URL,
+              websiteURL: process.env.REACT_APP_WEBSITE_URL,
             },
           });
           setLoading(false);
