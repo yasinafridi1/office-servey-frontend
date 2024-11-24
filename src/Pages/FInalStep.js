@@ -1,10 +1,20 @@
 import React from "react";
 import youtube from "../images/1.jpg";
 import website from "../images/2.jpg";
+import Score from "../components/Score";
+import { getServeyLocal } from "../utils/ScoreCount";
 
 const FinalStep = () => {
+  const { score, level, color } = getServeyLocal();
   return (
     <div className="w-full flex justify-center items-center flex-col">
+      <div className="w-full flex justify-center items-center mb-3">
+        <Score
+          score={score || 5}
+          level={level || "Novice"}
+          color={color || "#FF0000"}
+        />
+      </div>
       <div className="w-[300px] md:w-[350px] xl:w-[450px] text-center">
         <h1 className="poppin-700 text-2xl">Recommendation for improvements</h1>
       </div>

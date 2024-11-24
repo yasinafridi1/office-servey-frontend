@@ -7,6 +7,7 @@ import { quizSchema } from "../Schema";
 import SecondaryLoader from "../components/SecondaryLoader";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebase";
+import { getQuizResult } from "../utils/ScoreCount";
 const QuizStep = ({ onNext, stepValue }) => {
   const [loading, setLoading] = useState(false);
   const initialState = {
@@ -42,6 +43,7 @@ const QuizStep = ({ onNext, stepValue }) => {
           created: Timestamp.now(),
         })
           .then(() => {
+            getQuizResult(values);
             setLoading(false);
             onNext(5);
           })
