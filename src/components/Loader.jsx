@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./loader.css";
 const Loader = () => {
   return (
     <section className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center loaderBg z-10">

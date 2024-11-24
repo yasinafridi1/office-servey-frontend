@@ -11,6 +11,10 @@
 
 body{
   font-weight: 300;
+  background-image: url("./images/bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 90%;
 }
 .poppin-700 {
   font-weight: 700;
