@@ -53,7 +53,6 @@ const correctAnswer = {
   meeting_invitation: "outlook",
 };
 export const getQuizResult = (data) => {
-  console.log(data);
   let totalScore = 1;
   for (const key in correctAnswer) {
     // Check if the key exists in `data` and the values match
@@ -61,7 +60,6 @@ export const getQuizResult = (data) => {
       totalScore += 1; // Increment score if the answer matches
     }
   }
-  console.log(totalScore);
   const averageScore = parseInt(totalScore) / 2;
   if (averageScore === 10) {
     setSurveyLocal(99, "Expert", "#347928");
