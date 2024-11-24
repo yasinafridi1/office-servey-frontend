@@ -1,15 +1,3 @@
-export const universities = {
-  // leave only universities listed in excel file
-  // decide level base on proficiency
-  name: "university",
-  id: "uni",
-  label: "University/College",
-};
-
-export const independentInputs = [];
-
-export const depenedentInputs = [];
-
 export const InputWelcome = [
   {
     name: "fullName",

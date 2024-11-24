@@ -7,6 +7,7 @@ import { serveySchema } from "../Schema";
 import SecondaryLoader from "../components/SecondaryLoader";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { getSurveyResult } from "../utils/ScoreCount";
 const ServeyStep = ({ onNext, stepValue }) => {
   const [loading, setLoading] = useState(false);
   const initialState = {
@@ -41,6 +42,10 @@ const ServeyStep = ({ onNext, stepValue }) => {
           created: Timestamp.now(),
         })
           .then(() => {
+            getSurveyResult(
+              values.word_comfortability,
+              values.powerpoint_proficiency
+            );
             setLoading(false);
             onNext(5);
           })
