@@ -18,7 +18,7 @@ const Input = ({
     <div style={styles} className="w-full mt-5">
       <label
         htmlFor={id}
-        className={`block pl-[2px]  text-[14px] poppin-500 capitalize`}
+        className={`block pl-[2px]  text-[13px] poppin-400 capitalize`}
       >
         {label}
       </label>
